@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleco Churn Prediction Dashboard</title>
+    <link rel="stylesheet" href="customer_churn.css"> 
+</head>
+<body class="dark-theme">
+
+    <div class="container">
+        <header>
+            <h1 class="glow">Foresee the Fade: The Churn Prediction Nexus 🔮</h1>
+            <p class="subtitle">Unveiling the Shadow of Attrition.</p>
+        </header>
+        
+        <section id="inputSection">
+            <form id="churnForm">
+                <h2 class="form-title">Unified Customer Profile</h2>
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label for="customerID">Customer ID</label>
+                        <input type="text" id="customerID" name="customerID" value="CUST-7590" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SeniorCitizen">Senior Citizen</label>
+                        <select id="SeniorCitizen" name="SeniorCitizen">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Partner">Has Partner</label>
+                        <select id="Partner" name="Partner">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Dependents">Has Dependents</label>
+                        <select id="Dependents" name="Dependents">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="PhoneService">Phone Service</label>
+                        <select id="PhoneService" name="PhoneService">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MultipleLines">Multiple Lines</label>
+                        <select id="MultipleLines" name="MultipleLines">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No phone service">N/A (No Phone)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tenure">Tenure (Months)</label>
+                        <input type="number" id="tenure" name="tenure" min="1" max="72" value="12" step="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InternetService">Internet Service</label>
+                        <select id="InternetService" name="InternetService">
+                            <option value="Fiber optic">Fiber optic</option>
+                            <option value="DSL">DSL</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OnlineSecurity">Online Security</label>
+                        <select id="OnlineSecurity" name="OnlineSecurity">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OnlineBackup">Online Backup</label>
+                        <select id="OnlineBackup" name="OnlineBackup">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">N/A</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="DeviceProtection">Device Protection</label>
+                        <select id="DeviceProtection" name="DeviceProtection">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="TechSupport">Tech Support</label>
+                        <select id="TechSupport" name="TechSupport">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">N/A</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="StreamingTV">Streaming TV</label>
+                        <select id="StreamingTV" name="StreamingTV">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="StreamingMovies">Streaming Movies</label>
+                        <select id="StreamingMovies" name="StreamingMovies">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No internet service">N/A</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Contract">Contract Type</label>
+                        <select id="Contract" name="Contract">
+                            <option value="Month-to-month">Month-to-month</option>
+                            <option value="One year">One year</option>
+                            <option value="Two year">Two year</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="PaperlessBilling">Paperless Billing</label>
+                        <select id="PaperlessBilling" name="PaperlessBilling">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MonthlyCharges">Monthly Charges ($)</label>
+                        <input type="number" id="MonthlyCharges" name="MonthlyCharges" min="18.0" max="120.0" step="0.01" value="70.0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="TotalCharges">Total Charges ($)</label>
+                        <input type="number" id="TotalCharges" name="TotalCharges" min="18.0" max="8600.0" step="0.01" value="2500.0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PaymentMethod">Payment Method</label>
+                        <select id="PaymentMethod" name="PaymentMethod">
+                            <option value="Electronic check">Electronic check</option>
+                            <option value="Mailed check">Mailed check</option>
+                            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                            <option value="Credit card (automatic)">Credit card (automatic)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn primary-btn">PREDICT CHURN</button>
+            </form>
+        </section>
+
+        <section id="dashboardSection" class="hidden">
+            <h2 class="dashboard-title">Prediction Analysis</h2>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass">
+                    <p class="kpi-label">Predicted Churn Probability</p>
+                    <h3 id="kpi-probability" class="kpi-value glow-text">--%</h3>
+                </div>
+                <div class="kpi-card glass">
+                    <p class="kpi-label">Current Risk Level</p>
+                    <h3 id="kpi-risk-badge" class="kpi-value">--</h3>
+                </div>
+                <div class="kpi-card glass">
+                    <p class="kpi-label">Model Confidence Score</p>
+                    <h3 id="kpi-confidence" class="kpi-value glow-text">--%</h3>
+                </div>
+                <div class="kpi-card glass">
+                    <p class="kpi-label">Estimated Revenue at Risk</p>
+                    <h3 id="kpi-revenue" class="kpi-value glow-text">$--</h3>
+                </div>
+            </div>
+
+            <div class="main-dashboard-grid">
+                
+                <div class="chart-panel glass">
+                    <h3>Churn Risk Factor Profile</h3>
+                    <div id="radar-chart-placeholder" class="chart-placeholder">
+                        <canvas id="radarChart"></canvas>
+                        <p class="chart-info">Visualizing normalized risk scores across key dimensions.</p>
+                    </div>
+                </div>
+
+                <div class="table-panel glass">
+                    <h3>Why This Customer May Churn</h3>
+                    <div class="contribution-table-container">
+                        <table id="contribution-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Contribution Score</th>
+                                    <th>Explanation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="funnel-panel glass">
+                    <h3>Customer Journey Status</h3>
+                    <div id="funnel-visualization" class="funnel-container">
+                        <div class="funnel-stage" id="stage-recovered">Recovered</div>
+                        <div class="funnel-stage" id="stage-active">Active</div>
+                        <div class="funnel-stage" id="stage-at-risk">At Risk</div>
+                        <div class="funnel-stage" id="stage-likely-to-churn">Likely to Churn</div>
+                        <div class="funnel-stage" id="stage-churned">Churned</div>
+                    </div>
+                </div>
+            </div>
+            </section>
+        
+        <div id="loadingSpinner" class="hidden">
+            <div class="spinner-large"></div>
+            <p class="loading-text">Analyzing data and generating insights...</p>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="customer_churn.js"></script>
+</body>
+</html>

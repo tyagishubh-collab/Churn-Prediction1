@@ -1,0 +1,384 @@
+/* --- Root Variables: Dark Blue/Futuristic Theme --- */
+:root {
+    --color-bg-primary: #0a0e28;
+    --color-bg-surface: #10163a;
+    --color-navy-light: #1c275a;
+    --color-accent-glowing: #00bcd4; /* Cyan/Teal glow */
+    --color-accent-orange: #ff9800; /* Orange for chart highlight */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0a8bf;
+    --color-danger: #dc3545;
+    --color-success: #28a745;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Base & Body --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    padding: 3vh 3vw;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: var(--color-bg-surface);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    width: 100%;
+    max-width: 1440px; /* High resolution focus */
+    border: 1px solid var(--color-navy-light);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-navy-light);
+}
+
+/* --- Typography & Glows --- */
+.glow {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 10px var(--color-accent-glowing), 0 0 20px var(--color-accent-glowing);
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--color-accent-glowing);
+    font-size: 1.2em;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.form-title, .dashboard-title {
+    color: var(--color-text-primary);
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 600;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-accent-glowing);
+    text-shadow: 0 0 5px rgba(0, 184, 212, 0.5);
+}
+
+h3 {
+    color: var(--color-text-primary);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* --- Glassmorphism Effect --- */
+.glass {
+    background: rgba(12, 18, 51, 0.4); /* Dark, transparent navy */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Input Form Styling --- */
+#inputSection {
+    margin-bottom: 40px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 30px;
+}
+
+.form-group {
+    margin-bottom: 0; 
+}
+
+label {
+    color: var(--color-text-secondary);
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-navy-light);
+    border-radius: 8px;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--color-accent-glowing);
+    box-shadow: 0 0 8px var(--color-accent-glowing);
+}
+
+/* --- Predict Button --- */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-accent-glowing);
+    color: var(--color-bg-primary);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-top: 40px;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(0, 184, 212, 0.5);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover:not([disabled]) {
+    background-color: #00d5f0;
+    transform: translateY(-2px);
+}
+
+.submit-btn[disabled] {
+    background-color: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Dashboard Layout --- */
+.main-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Left, Center, Right */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* --- KPI Cards --- */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi-card {
+    text-align: center;
+    padding: 15px;
+    min-height: 100px;
+}
+
+.kpi-label {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+    margin-bottom: 5px;
+}
+
+.kpi-value {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.glow-text {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 8px var(--color-accent-glowing);
+}
+
+/* --- Left Section (Charts) --- */
+.chart-panel {
+    min-height: 400px;
+}
+.chart-placeholder {
+    height: 350px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05), transparent 70%);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(255, 152, 0, 0.3);
+}
+.chart-info {
+    position: absolute;
+    bottom: 5px;
+    font-size: 0.8em;
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+/* --- Center Section (Contribution Table) --- */
+.table-panel {
+    min-height: 400px;
+}
+
+.contribution-table-container {
+    overflow-x: auto;
+    height: 350px; 
+}
+
+#contribution-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+#contribution-table th, #contribution-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+}
+
+#contribution-table th {
+    background-color: var(--color-navy-light);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.score-high-risk { color: var(--color-danger); font-weight: bold; }
+.score-low-risk { color: var(--color-success); font-weight: bold; }
+.score-neutral { color: var(--color-text-secondary); }
+
+/* --- Right Section (Funnel Visualization) --- */
+.funnel-panel {
+    min-height: 400px;
+}
+
+.funnel-container {
+    display: flex;
+    flex-direction: column-reverse; /* Stack from bottom up */
+    justify-content: space-around;
+    height: 350px;
+    padding: 10px 0;
+}
+
+.funnel-stage {
+    position: relative;
+    padding: 10px 0;
+    margin: 8px 10%;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: var(--color-navy-light);
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.funnel-stage::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.funnel-stage:first-child::before {
+    display: none;
+}
+
+/* Dynamic Highlighting for Funnel */
+.funnel-stage.highlighted {
+    background-color: var(--color-accent-glowing);
+    color: var(--color-bg-primary);
+    box-shadow: 0 0 15px var(--color-accent-glowing), 0 0 5px var(--color-accent-glowing) inset;
+    transform: scale(1.05);
+}
+
+
+/* --- Bottom Section (Actions) --- */
+.actions-section {
+    margin-top: 40px;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.action-card {
+    padding: 15px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--color-navy-light);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 184, 212, 0.3);
+}
+
+.action-priority-1 { border-color: var(--color-danger); color: var(--color-danger); }
+.action-priority-2 { border-color: var(--color-warning); color: var(--color-warning); }
+.action-priority-3 { border-color: var(--color-success); color: var(--color-success); }
+.action-priority-4 { border-color: var(--color-accent-glowing); color: var(--color-accent-glowing); }
+.action-priority-5 { border-color: var(--color-text-secondary); color: var(--color-text-secondary); }
+
+
+/* --- Utility & Responsive --- */
+.hidden {
+    display: none !important;
+}
+
+#loadingSpinner {
+    text-align: center;
+    padding: 50px;
+}
+
+.spinner-large {
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid var(--color-accent-glowing);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1200px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .main-dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .funnel-panel {
+        grid-column: span 2; /* Put funnel on its own row */
+    }
+    .actions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .main-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .actions-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
